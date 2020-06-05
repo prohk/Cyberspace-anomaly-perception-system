@@ -20,16 +20,16 @@
 以上功能在windows端和linux端都有各自的实现，方式不同，效果略有差异。
 系统架构一览
 ---
-![image]
+![image](https://github.com/a13202026257/Cyberspace-anomaly-perception-system/blob/master/jpg/jiagou.png)
 
 #windows端的实现流程图
     linux的实现图比较简单就不放了
-![image]
+![image](https://github.com/a13202026257/Cyberspace-anomaly-perception-system/blob/master/jpg/denglu-windows.png)
 测试效果图
 ----
-![image]
-![image]
-![image]
+![image](https://github.com/a13202026257/Cyberspace-anomaly-perception-system/blob/master/jpg/control.png)
+![image](https://github.com/a13202026257/Cyberspace-anomaly-perception-system/blob/master/jpg/dashboard.png)
+![image](https://github.com/a13202026257/Cyberspace-anomaly-perception-system/blob/master/jpg/result.png)
 
 To do
 ----
