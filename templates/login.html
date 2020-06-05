@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Free Bulma template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <!-- Bulma Version 0.8.x-->
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/login.css">
+    <style>
+        .has-text-danger {
+    color: #f14668 !important
+}
+    </style>
+</head>
+
+<body>
+    <section class="hero is-success is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-black">Login</h3>
+                    <hr class="login-hr">
+                    <p class="subtitle has-text-black">Please login to proceed.</p>
+                    <div class="box">
+                        <figure class="avatar">
+                            <img src="../static/jpg/头像.jpg">
+                        </figure>
+                        <form method="post" action="/" onsubmit="check_login()">
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="text" id="username" placeholder="Your Username" autofocus="">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+                                    <input class="input is-large" type="password" id="password" placeholder="Your Password">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="checkbox">
+                  <input type="checkbox">
+                  Remember me
+                </label>
+                            </div>
+                            <div id="error_div" class="has-text-danger" style="display: none">
+
+                            </div>
+                            <button class="button is-block is-info is-large is-fullwidth" id="submit" formmethod="post">Login <i class="fa fa-sign-in" aria-hidden="true"></i></button>
+                        </form>
+                    </div>
+                    <p class="has-text-grey">
+                        <a href="../">Sign Up</a> &nbsp;·&nbsp;
+                        <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+                        <a href="../">Need Help?</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../static/jquery.js" type="text/javascript"></script>>
+    <script>
+    function check_login() {
+        var username = document.getElementById("username");
+        var password = document.getElementById("password");
+        var div = document.getElementById("error_div");
+        var p = document.createElement("p");
+        p.className = "has-text-danger";
+        if (username.value == "") {
+            p.innerHTML = "请输入用户名";
+            div.appendChild(p);
+            username.focus();
+            return false;
+        }
+        if (password.value == "") {
+            p.innerHTML = "请输入用户名";
+            div.appendChild(p);
+            password.focus();
+            return false;
+        }
+        $.ajax(
+            {
+                url: '/login',
+                data: "username=" + $("#username").val() + "&password=" + $("#password").val(),
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                async: false,
+                success: function (d) {
+                    var status = d.status;
+                    if (status !== undefined && status !== '') {
+                        if (status === "0") {
+                            p.innerHTML = "认证成功";
+                            div.appendChild(p);
+                            div.style.display = "";
+                            window.location.href = "http://127.0.0.1:5000/index"
+                        } else {
+                            p.innerHTML = "用户名或密码错误";
+                            div.appendChild(p);
+                            div.style.display = "";
+                            setTimeout(function () {
+                                div.style.display = "none"
+                            }, 1000);
+                            login = false;
+                        }
+                    } else {
+                        p.innerHTML = "用户名或密码错误";
+                        div.appendChild(p);
+                        login = false;
+                    }
+
+                }
+            });
+    }
+    function sleep(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}
+    </script>
+</body>
+
+</html>
+

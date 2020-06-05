@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html class="no-js h-100" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Shards Dashboard Lite - Free Bootstrap Admin Template – DesignRevision</title>
+    <meta name="description"
+          content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../static/shards-dashboards.1.1.0.min.css">
+    <link rel="stylesheet" href="../static/extras.1.1.0.min.css">
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</head>
+<body class="h-100">
+<div class="color-switcher-toggle animated pulse infinite">
+    <i class="material-icons">settings</i>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Main Sidebar -->
+        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
+            <div class="main-navbar">
+                <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+                    <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+                        <div class="d-table m-auto">
+                            <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;"
+                                 src="../static/jpg/shards-dashboards-logo.svg" alt="Log Dashboard">
+                            <span class="d-none d-md-inline ml-1">User Manage</span>
+                        </div>
+                    </a>
+                    <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
+                        <i class="material-icons">&#xE5C4;</i>
+                    </a>
+                </nav>
+            </div>
+            <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+                <div class="input-group input-group-seamless ml-3">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <input class="navbar-search form-control" type="text" placeholder="Search for something..."
+                           aria-label="Search"></div>
+            </form>
+            <div class="nav-wrapper">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/dashboard">
+                            <i class="material-icons">edit</i>
+                            <span>Log Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/manage">
+                            <i class="material-icons">vertical_split</i>
+                            <span>User Manage</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index">
+                            <i class="fas fa-angle-double-left fa-4x"></i>
+                            <span>Back To Control</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!-- End Main Sidebar -->
+        <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
+            <div class="main-navbar sticky-top bg-white">
+                <!-- alert success msg -->
+                <div class="alert alert-success alert-dismissible fade show mb-0" style="display: none"
+                     id='success_alert' styrole="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <i class="fas fa-check fa-2x"></i>
+                    <strong>Success!</strong>
+                    <div id="success_text"></div>
+                </div>
+                <!-- end alert success msg -->
+                <!-- alert error -->
+                <div class="alert alert-danger alert-dismissible fade show mb-0" style="display: none" id='error_alert'
+                     styrole="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    <i class="fas fa-times fa-2x"></i>
+                    <strong>Error!</strong>
+                    <div id="error_text"></div>
+                </div>
+                <!-- end alert error  -->
+                <!-- Main Navbar -->
+                <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+                    <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                        <div class="input-group input-group-seamless ml-3">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                            </div>
+                            <input class="navbar-search form-control" type="text" placeholder="Search for something..."
+                                   aria-label="Search"></div>
+                    </form>
+                    <ul class="navbar-nav border-left flex-row ">
+                        <li class="nav-item border-right dropdown notifications">
+                            <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="nav-link-icon__wrapper">
+                                    <i class="material-icons">&#xE7F4;</i>
+                                    <span class="badge badge-pill badge-danger">2</span>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">
+                                    <div class="notification__icon-wrapper">
+                                        <div class="notification__icon">
+                                            <i class="material-icons">&#xE6E1;</i>
+                                        </div>
+                                    </div>
+                                    <div class="notification__content">
+                                        <span class="notification__category">good news</span>
+                                        <p>Crack Behavior have decreated !
+                                            <span class="text-success text-semibold">28%</span> in the last week.get better !</p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="notification__icon-wrapper">
+                                        <div class="notification__icon">
+                                            <i class="material-icons">&#xE8D1;</i>
+                                        </div>
+                                    </div>
+                                    <div class="notification__content">
+                                        <span class="notification__category">error</span>
+                                        <p>server error situation have increated!
+                                            <span class="text-danger text-semibold">5.52%</span>. It could have been
+                                            worse!</p>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item notification__all text-center" href="#"> View all
+                                    Notifications </a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#"
+                               role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="far fa-user fa-3x"></i>
+                                <span class="d-none d-md-inline-block"
+                                      style="width: max-content;height: max-content;font-size: large">{{ manage }}</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-small">
+                                <a class="dropdown-item" href="#">
+                                    <i class="material-icons">&#xE7FD;</i> Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-danger" href="/login">
+                                    <i class="material-icons text-danger">&#xE879;</i> Logout </a>
+                            </div>
+                        </li>
+                    </ul>
+                    <nav class="nav">
+                        <a href="#"
+                           class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left"
+                           data-toggle="collapse" data-target=".header-navbar" aria-expanded="false"
+                           aria-controls="header-navbar">
+                            <i class="material-icons">&#xE5D2;</i>
+                        </a>
+                    </nav>
+                </nav>
+            </div>
+            <!-- / .main-navbar -->
+            <div class="main-content-container container-fluid px-4">
+                <!-- Page Header -->
+                <div class="page-header row no-gutters py-4">
+                    <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                        <span class="text-uppercase page-subtitle">Dashboard</span>
+                        <h3 class="page-title">Log Overview</h3>
+                    </div>
+                </div>
+                <!-- active user-->
+                <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                        <h6 class="m-0">User</h6>
+                    </div>
+                    <div class="card-body p-0 pb-3 text-center">
+                        <table class="table mb-0">
+                            <thead class="bg-light">
+                            <tr>
+                                <th scope="col" class="border-0">#</th>
+                                <th scope="col" class="border-0">username</th>
+                                <th scope="col" class="border-0">department</th>
+                                <th scope="col" class="border-0">role</th>
+                                <th scope="col" class="border-0">status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                <tr>
+                                    <td>{{ user['id'] }}</td>
+                                    <td>{{ user['username'] }}</td>
+                                    <td>{{ user['password'] }}</td>
+                                    <td>{{ user['role'] }}</td>
+                                    <td>{{ user['status'] }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- end active user-->
+                <!-- add user -->
+                <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                        <h6 class="m-0">Add User</h6>
+                    </div>
+                    <div class="input-group mb-3" style="margin-top: 30px">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-info rounded text-white text-center p-2 "
+                                  style="margin-left: 30px">用户</span>
+                        </div>
+                        <input type="text" id="add_user" class="form-control" placeholder="Username"
+                               aria-label="Username" aria-describedby="basic-addon1"
+                               style="margin-right: 500px" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-info rounded text-white text-center p-2"
+                                  style="margin-left: 30px">密码</span>
+                            <input type="password" id="add_pwd" class="form-control" id="inputPassword4"
+                                   placeholder="Password"
+                                   value="myCoolPassword"
+                                   style="margin-right: 500px" required>
+                        </div>
+                    </div>
+                    <button type="button" class="mb-2 btn btn-success mr-2"
+                            style="margin-left: 200px;margin-bottom: 50px;width: 100px;margin-top: 5px"
+                            onclick="check_status()">提交
+                    </button>
+                </div>
+                <!-- end add user-->
+                <!-- change password -->
+                <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                        <h6 class="m-0">change Profile</h6>
+                    </div>
+                    <div class="input-group mb-3" style="margin-top: 30px">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-info rounded text-white text-center p-2 "
+                                  style="margin-left: 30px">用户名</span>
+                        </div>
+                        <input type="text" id="old_username" class="form-control" placeholder="Past Username"
+                               aria-label="Username" aria-describedby="basic-addon1"
+                               style="margin-right: 500px">
+                    </div>
+{#                    <div class="input-group mb-3">#}
+{#                        <div class="input-group-prepend">#}
+{#                            <span class="input-group-text bg-info rounded text-white text-center p-2 "#}
+{#                                  style="margin-left: 30px">新用户</span>#}
+{#                        </div>#}
+{#                        <input type="text" id="username" class="form-control" placeholder="New Username"#}
+{#                               aria-label="Username" aria-describedby="basic-addon1"#}
+{#                               style="margin-right: 500px">#}
+{#                    </div>#}
+                    <div class="form-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-info rounded text-white text-center p-2"
+                                  style="margin-left: 30px">新密码 </span>
+                            <input type="password" id="new_password" class="form-control" id="inputPassword4"
+                                   placeholder="New Password"
+                                   value="myCoolPassword"
+                                   style="margin-right: 500px">
+                        </div>
+                    </div>
+                    <button type="button" class="mb-2 btn btn-primary mr-2"
+                            style="margin-left: 200px;margin-bottom: 50px;width: 100px;margin-top: 5px" onclick="check_change()">提交
+                    </button>
+                </div>
+                <!-- end change password-->
+                <!-- del user-->
+                <div class="card card-small mb-4">
+                    <div class="card-header border-bottom">
+                        <h6 class="m-0">Del User</h6>
+                    </div>
+                    <div class="input-group mb-3" style="margin-top: 30px">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-info rounded text-white text-center p-2 "
+                                  style="margin-left: 30px">用户名</span>
+                        </div>
+                        <input type="text" id="del_username" class="form-control" placeholder="Username"
+                               aria-label="Username" aria-describedby="basic-addon1"
+                               style="margin-right: 500px">
+                    </div>
+                    <div class="form-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-info rounded text-white text-center p-2"
+                                  style="margin-left: 30px">管理员密码</span>
+                            <input type="password" id="admin_password" class="form-control" id="inputPassword4"
+                                   placeholder="Password"
+                                   value="myCoolPassword"
+                                   style="margin-right: 500px">
+                        </div>
+                    </div>
+                    <button type="button" class="mb-2 btn btn-danger mr-2"
+                            style="margin-left: 200px;margin-bottom: 50px;width: 100px;margin-top: 5px" onclick="check_del()">删除
+                    </button>
+                </div>
+                <!-- end del user-->
+                <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">control</a>
+                        </li>
+                    </ul>
+                    <span class="copyright ml-auto my-auto mr-2">Copyright © 2020
+              <a href="#" rel="nofollow">毕业设计</a>
+            </span>
+                </footer>
+            </div>
+        </main>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+<script src="../static/script/extras.1.1.0.min.js"></script>
+<script src="../static/script/shards-dashboards.1.1.0.min.js"></script>
+<script src="../static/script/app-blog-overview.1.1.0.js"></script>
+<script src="../static/script/echarts.min.js"></script>
+<script>
+    function check_status() {
+        $.ajax(
+            {
+                url: '/dashboard/manage/add_user',
+                data: "username=" + $("#add_user").val() + "&password=" + $("#add_pwd").val(),
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                async: false,
+                success: function (d) {
+                    var status = d.status;
+                    var success_div = document.getElementById('success_alert');
+                    var error_div = document.getElementById('error_alert');
+                    if (status !== undefined && status !== '') {
+                        if (status === '0') {
+                            success_div.innerText = '添加用户成功!';
+                            success_div.style.display = '';
+                            setTimeout(function () {
+                                success_div.style.display = "none"
+                            }, 1000);
+                        }
+                        if (status === '1') {
+                            error_div.innerText = '添加用户错误 !';
+                            error_div.style.display = '';
+                            setTimeout(function () {
+                                error_div.style.display = "none"
+                            }, 1000);
+                        }
+                        if (status === '2') {
+                            error_div.innerText = '已存在用户名！';
+                            error_div.style.display = '';
+                            setTimeout(function () {
+                                error_div.style.display = "none"
+                            }, 1000);
+                        }
+                    } else {
+                        error_div.innerText = '未知错误！';
+                        error_div.style.display = '';
+                        setTimeout(success_div.style.display = "none", 1000);
+                    }
+
+                }
+            });
+    }
+
+    function check_change() {
+        $.ajax(
+            {
+                url: '/dashboard/manage/change_user',
+                data: "username=" + $("#old_username").val() + "&password=" + $("#new_password").val(),
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                async: false,
+                success: function (f) {
+                    var status = f.status;
+                    var success_div = document.getElementById('success_alert');
+                    var error_div = document.getElementById('error_alert');
+                    if (status !== undefined && status !== '') {
+                        if (status === '0') {
+                            success_div.innerText = '更新用户密码成功!';
+                            success_div.style.display = '';
+                            setTimeout(function () {
+                                success_div.style.display = "none"
+                            }, 1000);
+                        }
+                        if (status === '1') {
+                            error_div.innerText = '更新用户密码错误 !';
+                            error_div.style.display = '';
+                            setTimeout(function () {
+                                error_div.style.display = "none"
+                            }, 1000);
+                        }
+                        if (status === '2') {
+                            error_div.innerText = '不存在用户！';
+                            error_div.style.display = '';
+                            setTimeout(function () {
+                                error_div.style.display = "none"
+                            }, 1000);
+                        }
+                    } else {
+                        error_div.innerText = '未知错误！';
+                        error_div.style.display = '';
+                        setTimeout(success_div.style.display = "none", 1000);
+                    }
+
+                }
+            }
+        )
+
+    };
+    function check_del() {
+        $.ajax(
+            {
+                url: '/dashboard/manage/del_user',
+                data: "username=" + $("#del_username").val() + "&password=" + $("#admin_password").val(),
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                async: false,
+                success: function (g) {
+                    var status = g.status;
+                    var success_div = document.getElementById('success_alert');
+                    var error_div = document.getElementById('error_alert');
+                    if (status !== undefined && status !== '') {
+                        if (status === '0') {
+                            success_div.innerText = '删除用户成功!';
+                            success_div.style.display = '';
+                            setTimeout(function () {
+                                success_div.style.display = "none"
+                            }, 1000);
+                        }
+                        if (status === '1') {
+                            error_div.innerText = '管理员密码不正确!请重新输入';
+                            error_div.style.display = '';
+                            setTimeout(function () {
+                                error_div.style.display = "none"
+                            }, 1000);
+                        }
+                        if (status === '2') {
+                            error_div.innerText = '不存在用户！';
+                            error_div.style.display = '';
+                            setTimeout(function () {
+                                error_div.style.display = "none"
+                            }, 1000);
+                        }
+                    } else {
+                        error_div.innerText = '未知错误！';
+                        error_div.style.display = '';
+                        setTimeout(function(){error_div.style.display = "none"}, 1000);
+                    }
+
+                }
+            }
+        )
+
+    }
+</script>
+</body>
+
+</html>
